@@ -165,15 +165,14 @@ export async function POST(request: NextRequest) {
     // ── ÉTAPE 4 : Compilation des données ──
     await setStep(auditId, 'Compilation des données techniques...', 65)
 
-    const mainData = {
-      url: audit.main_url,
-      pagespeed_mobile: mainPageSpeed.mobile.score,
-      pagespeed_desktop: mainPageSpeed.desktop.score,
-      lcp_mobile: mainPageSpeed.mobile.lcp,
-      lcp_desktop: mainPageSpeed.desktop.lcp,
-      pagespeed_issues: mainPageSpeed.mobile.issues,
-      ...mainCrawl,
-    }
+const mainData = {
+  pagespeed_mobile: mainPageSpeed.mobile.score,
+  pagespeed_desktop: mainPageSpeed.desktop.score,
+  lcp_mobile: mainPageSpeed.mobile.lcp,
+  lcp_desktop: mainPageSpeed.desktop.lcp,
+  pagespeed_issues: mainPageSpeed.mobile.issues,
+  ...mainCrawl,
+}
 
     const compData = compCrawl && compPageSpeed ? {
       url: audit.competitor_url,
