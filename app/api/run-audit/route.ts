@@ -175,7 +175,6 @@ const mainData = {
 }
 
     const compData = compCrawl && compPageSpeed ? {
-      url: audit.competitor_url,
       pagespeed_mobile: compPageSpeed.mobile.score,
       pagespeed_desktop: compPageSpeed.desktop.score,
       lcp_mobile: compPageSpeed.mobile.lcp,
