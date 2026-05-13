@@ -103,7 +103,7 @@ async function runAudit(auditId: string, mainUrl: string, competitorUrl: string 
       competitorResult = { url: competitorUrl, global: compScores.global, scores: compScores, pagespeed_mobile: compData.pagespeed_mobile, has_schema: compData.has_schema, has_faq: compData.has_faq, h1_count: compData.h1_count, schema_types: compData.schema_types }
     }
     await setStep(auditId, 'Calcul des scores 8 piliers GEO...', 78)
-    const mainData = { url: mainUrl, pagespeed_mobile: mainPageSpeed.mobile.score, pagespeed_desktop: mainPageSpeed.desktop.score, lcp_mobile: mainPageSpeed.mobile.lcp, lcp_desktop: mainPageSpeed.desktop.lcp, pagespeed_issues: mainPageSpeed.mobile.issues, ...mainCrawl }
+    const mainData = { pagespeed_mobile: mainPageSpeed.mobile.score, pagespeed_desktop: mainPageSpeed.desktop.score, lcp_mobile: mainPageSpeed.mobile.lcp, lcp_desktop: mainPageSpeed.desktop.lcp, pagespeed_issues: mainPageSpeed.mobile.issues, ...mainCrawl }
     const scores = computeScores(mainData)
     await setStep(auditId, 'Génération du plan d\'action...', 90)
     const findings = generateFindings(mainData)
